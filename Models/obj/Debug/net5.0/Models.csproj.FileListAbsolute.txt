@@ -1,0 +1,12 @@
+C:\STUDIA\3.1\DNP\DNPA3\Models\bin\Debug\net5.0\Models.deps.json
+C:\STUDIA\3.1\DNP\DNPA3\Models\bin\Debug\net5.0\Models.dll
+C:\STUDIA\3.1\DNP\DNPA3\Models\bin\Debug\net5.0\ref\Models.dll
+C:\STUDIA\3.1\DNP\DNPA3\Models\bin\Debug\net5.0\Models.pdb
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.csproj.AssemblyReference.cache
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.AssemblyInfoInputs.cache
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.AssemblyInfo.cs
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.csproj.CoreCompileInputs.cache
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.dll
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\ref\Models.dll
+C:\STUDIA\3.1\DNP\DNPA3\Models\obj\Debug\net5.0\Models.pdb

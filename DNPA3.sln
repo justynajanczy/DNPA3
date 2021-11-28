@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{D992C146-AE79-414D-B34D-9F9CA98BC3FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{D170A719-D3E5-4015-81BD-C093F04C5895}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D992C146-AE79-414D-B34D-9F9CA98BC3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D992C146-AE79-414D-B34D-9F9CA98BC3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D992C146-AE79-414D-B34D-9F9CA98BC3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D992C146-AE79-414D-B34D-9F9CA98BC3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D170A719-D3E5-4015-81BD-C093F04C5895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D170A719-D3E5-4015-81BD-C093F04C5895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D170A719-D3E5-4015-81BD-C093F04C5895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D170A719-D3E5-4015-81BD-C093F04C5895}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
