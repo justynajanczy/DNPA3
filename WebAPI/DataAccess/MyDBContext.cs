@@ -8,9 +8,9 @@ namespace WebAPI.DataAccess
         public DbSet<Adult> Adults { get; set; }
         public DbSet<Job> Jobs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         {
-            optionsBuilder.UseSqlite("Data Source=Adults.db");
+            Database.EnsureCreated();
         }
     }
 }
