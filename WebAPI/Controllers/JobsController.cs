@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{jobTitle}")]
         public async Task<ActionResult<Job>> GetJob(string jobTitle)
         {
             try
@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{jobTitle}")]
         public async Task<ActionResult<Job>> DeleteJob(string jobTitle)
         {
             try

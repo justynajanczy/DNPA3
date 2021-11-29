@@ -1,0 +1,93 @@
+﻿@page "/Edit/{Id:int}"
+@using Microsoft.AspNetCore.Components
+@using Models
+@using Client.Services
+@inject NavigationManager NavMgr
+
+<h3>Edit adult (id: @Id) properties: </h3>
+
+@if (adultToEdit == null)
+{
+    <em>Adult not found!</em>
+}
+else
+{
+    <EditForm Model="@adultToEdit" OnValidSubmit="@Save">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        <div class="form-group">
+            Adult Id:<br/>
+            <InputNumber @bind-Value="adultToEdit.Id"/>
+        </div>
+        <div class="form-group">
+                First Name:<br/>
+                <InputText @bind-Value="adultToEdit.FirstName"/>
+            </div>
+            <div class="form-group">
+                Last Name:<br/>
+                <InputText @bind-Value="adultToEdit.LastName"/>
+            </div>
+            <div class="form-group">
+                Age:<br/>
+                <InputNumber @bind-Value="adultToEdit.Age"/>
+            </div>
+            <div class="form-group">
+                Sex: 
+                <InputRadioGroup @bind-Value="adultToEdit.Sex">
+                    @foreach (var sex in Sex)
+                    {
+                        <InputRadio Value="sex"/> @sex
+                    }
+                    <br/>
+                </InputRadioGroup>
+            </div>
+            <div class="form-group">
+                Job title:<br/>
+                <InputText @bind-Value="adultToEdit.JobTitle"/>
+            </div>
+            <div class="form-group">
+                Hair color:<br/>
+                <InputText @bind-Value="adultToEdit.HairColor"/>
+            </div>
+            <div class="form-group">
+                Eye color:<br/>
+                <InputText @bind-Value="adultToEdit.EyeColor"/>
+            </div>
+            <div class="form-group">
+                Weight:<br/>
+                <InputNumber @bind-Value="adultToEdit.Weight"/>
+            </div>
+        <div class="form-group">
+            Height:<br/>
+            <InputNumber @bind-Value="adultToEdit.Height"/>
+        </div>
+        <p class="actions">
+            <button class="btn btn-outline-dark" type="submit">Save</button>
+        </p>
+    </EditForm>
+}
+
+
+
+@code 
+{
+    //parameter because can be set from the outside
+    [Parameter]
+    public int Id { get; set; }
+    List<char> Sex = new List<char> {'F', 'M'};
+    [Inject] public IAdultService AdultService { get; set; }
+
+    private Adult adultToEdit = new Adult();
+
+    protected override async Task OnInitializedAsync()
+    {
+        adultToEdit = await AdultService.GetAdult(Id);
+    }
+
+    private void Save()
+    {
+        AdultService.UpdateAdult(adultToEdit);
+        //FileAdapter.UpdateAdult(adultToEdit);
+        NavMgr.NavigateTo("/Adults");
+    }
+}

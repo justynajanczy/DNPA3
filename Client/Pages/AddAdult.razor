@@ -1,0 +1,83 @@
+﻿@page "/AddAdult"
+
+@using Microsoft.AspNetCore.Components
+@using Models
+@using Client.Services
+@inject NavigationManager NavigationManager
+
+
+<h3>AddAdult</h3>
+
+<EditForm Model="@newAdultItem" OnValidSubmit="@AddNewAdult" >
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group"> Adult Id: <br/>
+        <InputNumber @bind-Value="newAdultItem.Id"/>
+    </div>
+    <div class="form-group">
+        First Name:<br/>
+        <InputText @bind-Value="newAdultItem.FirstName"/>
+    </div>
+    <div class="form-group">
+        Last Name:<br/>
+        <InputText @bind-Value="newAdultItem.LastName"/>
+    </div>
+    <div class="form-group">
+        Age:<br/>
+        <InputNumber @bind-Value="newAdultItem.Age"/>
+    </div>
+    <div class="form-group">
+        Sex: 
+        <InputRadioGroup @bind-Value="newAdultItem.Sex">
+            @foreach (var sex in Sex)
+            {
+                <InputRadio Value="sex"/> @sex
+            }
+            <br/>
+        </InputRadioGroup>
+    </div>
+    <div class="form-group">
+        Job title:<br/>
+        <InputText @bind-Value="newAdultJob.JobTitle"/>
+    </div>
+    <div class="form-group">
+        Salary:<br/>
+        <InputNumber @bind-Value="newAdultJob.Salary"/>
+    </div>
+    <div class="form-group">
+        Hair color:<br/>
+        <InputText @bind-Value="newAdultItem.HairColor"/>
+    </div>
+    <div class="form-group">
+        Eye color:<br/>
+        <InputText @bind-Value="newAdultItem.EyeColor"/>
+    </div>
+    <div class="form-group">
+        Weight:<br/>
+        <InputNumber @bind-Value="newAdultItem.Weight"/>
+    </div>
+    <div class="form-group">
+        Height:<br/>
+        <InputNumber @bind-Value="newAdultItem.Height"/>
+    </div>
+    <p class="actions">
+        <button class="btn btn-outline-dark" type="submit">Create</button>
+    </p>
+</EditForm>
+
+@code
+{
+    public Adult newAdultItem = new Adult();
+    public Job newAdultJob = new Job();
+    List<char> Sex = new List<char> {'F', 'M'};
+    [Inject] public IAdultService AdultService { get; set; }
+    [Inject] public IJobService JobService { get; set; }
+
+    private void AddNewAdult()
+    {
+        newAdultItem.JobTitle = newAdultJob.JobTitle;
+        AdultService.AddAdult(newAdultItem);
+        JobService.AddJob(newAdultJob);
+        NavigationManager.NavigateTo("/Adults");
+    }
+}

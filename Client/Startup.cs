@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Client.Data;
+using Client.Services;
+using Models;
 
 namespace Client
 {
@@ -28,7 +30,15 @@ namespace Client
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+            services.AddHttpClient<IAdultService, AdultService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001/");
+            });
+            
+            services.AddHttpClient<IJobService, JobService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:5001/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

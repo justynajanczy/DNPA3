@@ -1,0 +1,133 @@
+﻿@page "/Adults"
+@using Client.Services
+@using Models
+
+@inject NavigationManager NavigationManager
+
+<h3>Adults</h3>
+
+@if (toShowAdults == null)
+    {
+        <p>
+            <em>Loading...</em>
+        </p>
+    }
+    else if (!toShowAdults.Any())
+    {
+        <p>
+            <em>No Adults items exist. Please add some.</em>
+        </p>
+    }
+    else
+    {
+        <table id="adultsTable" class="table table-hover">
+            <thead class="thead-light">
+            <tr>
+                <th>Adult ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Job title</th>
+                <th>Hair color</th>
+                <th>Eye color</th>
+                <th>Weight</th>
+                <th>Height</th>
+                <th>Remove</th>
+                <th>Update</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var adult in toShowAdults)
+            {
+                <tr>
+                    <td>@adult.Id</td>
+                    <td>@adult.FirstName&ensp;@adult.LastName</td>
+                    <td>@adult.Age</td>
+                    <td>@adult.Sex</td>
+                    <td>@adult.JobTitle</td>
+                    <td>@adult.HairColor</td>
+                    <td>@adult.EyeColor</td>
+                    <td>@adult.Weight</td>
+                    <td>@adult.Height</td>
+                    <td>
+                        <button @onclick="@(() => RemoveAdult(adult.Id))">
+                            <i class="oi oi-trash" style="color:pink"/>
+                        </button>
+                    </td>
+                    <td>
+                        <button @onclick="@(() => Edit(adult.Id))">
+                            <i class="oi oi-pencil" style="color:#90c565"/>
+                        </button>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
+@code {
+    [Inject] public IAdultService AdultService { get; set; }
+    
+    private IList<Adult> adults;
+    private IList<Adult> toShowAdults;
+
+    private string filterByName;
+    private string filterHairColor;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        adults = (await AdultService.GetAdults()).ToList();
+        //adults = FileAdapter.GetAdults();
+        toShowAdults = adults;
+    }
+
+    private void RemoveAdult(int id)
+    {
+        Adult toRemove = adults.First(a => a.Id == id);
+        AdultService.DeleteAdult(id);
+        //FileAdapter.RemoveAdult(id);
+        adults.Remove(toRemove);
+        toShowAdults.Remove(toRemove);
+    }
+
+    private void FilterByName(ChangeEventArgs changeEventArgs)
+    {
+        filterByName = null;
+        try
+        {
+            filterByName = changeEventArgs.Value.ToString();
+        }
+        catch (Exception e){}
+        ExecuteFilter();
+    }
+
+    private void FilterByHairColor(ChangeEventArgs changeEventArgs)
+    {
+        filterHairColor = null;
+        try
+        {
+            filterHairColor = changeEventArgs.Value.ToString();
+        }
+        catch(Exception e){}
+        ExecuteFilter();
+    }
+
+    private void Edit(int id)
+    {
+        NavigationManager.NavigateTo($"Edit/{id}");
+    }
+
+    private void ExecuteFilter()
+    {
+        toShowAdults = adults.Where(a =>
+            ( ( filterByName != null && ( a.FirstName.ToLower().Contains( filterByName.ToLower() ) || a.LastName.ToLower().Contains( filterByName.ToLower() ) ) ) || filterByName == null) 
+            &&
+            (filterHairColor != null && a.HairColor == filterHairColor || filterHairColor == "All")).ToList();
+
+    }
+
+    private void NavigateToAddAdult()
+    {
+        NavigationManager.NavigateTo("/AddAdult");
+    }
+}
