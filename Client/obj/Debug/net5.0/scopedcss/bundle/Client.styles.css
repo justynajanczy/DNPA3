@@ -10,11 +10,12 @@
 }
 
 .sidebar[b-ocnk4r8tjs] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(185, 198, 206) 0%, #a49dcb 90%);
 }
 
 .top-row[b-ocnk4r8tjs] {
-    background-color: #f7f7f7;
+    background-color: #B9C6CEFF;
+    background-image: linear-gradient(90deg, rgb(185, 198, 206) 0%, #a49dcb 90%);
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
@@ -22,15 +23,15 @@
     align-items: center;
 }
 
-    .top-row[b-ocnk4r8tjs]  a, .top-row .btn-link[b-ocnk4r8tjs] {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-    }
+.top-row[b-ocnk4r8tjs]  a, .top-row .btn-link[b-ocnk4r8tjs] {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+}
 
-    .top-row a:first-child[b-ocnk4r8tjs] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.top-row a:first-child[b-ocnk4r8tjs] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-ocnk4r8tjs] {
@@ -76,7 +77,7 @@
 
 .top-row[b-kd1ih0s86n] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: #b9c6ce;
 }
 
 .navbar-brand[b-kd1ih0s86n] {
@@ -93,33 +94,36 @@
 .nav-item[b-kd1ih0s86n] {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    color: black;
+
 }
 
-    .nav-item:first-of-type[b-kd1ih0s86n] {
-        padding-top: 1rem;
-    }
+.nav-item:first-of-type[b-kd1ih0s86n] {
+    padding-top: 1rem;
+}
 
-    .nav-item:last-of-type[b-kd1ih0s86n] {
-        padding-bottom: 1rem;
-    }
+.nav-item:last-of-type[b-kd1ih0s86n] {
+    padding-bottom: 1rem;
+}
 
-    .nav-item[b-kd1ih0s86n]  a {
-        color: #d7d7d7;
-        border-radius: 4px;
-        height: 3rem;
-        display: flex;
-        align-items: center;
-        line-height: 3rem;
-    }
+.nav-item[b-kd1ih0s86n]  a {
+    color: #d7d7d7;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+    color: black;
+}
 
 .nav-item[b-kd1ih0s86n]  a.active {
     background-color: rgba(255,255,255,0.25);
-    color: white;
+    color:  #a49dcb;
 }
 
 .nav-item[b-kd1ih0s86n]  a:hover {
     background-color: rgba(255,255,255,0.1);
-    color: white;
+    color: black;
 }
 
 @media (min-width: 641px) {

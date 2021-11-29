@@ -9,11 +9,12 @@
 }
 
 .sidebar[b-ocnk4r8tjs] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    background-image: linear-gradient(180deg, rgb(185, 198, 206) 0%, #a49dcb 90%);
 }
 
 .top-row[b-ocnk4r8tjs] {
-    background-color: #f7f7f7;
+    background-color: #B9C6CEFF;
+    background-image: linear-gradient(90deg, rgb(185, 198, 206) 0%, #a49dcb 90%);
     border-bottom: 1px solid #d6d5d5;
     justify-content: flex-end;
     height: 3.5rem;
@@ -21,15 +22,15 @@
     align-items: center;
 }
 
-    .top-row[b-ocnk4r8tjs]  a, .top-row .btn-link[b-ocnk4r8tjs] {
-        white-space: nowrap;
-        margin-left: 1.5rem;
-    }
+.top-row[b-ocnk4r8tjs]  a, .top-row .btn-link[b-ocnk4r8tjs] {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+}
 
-    .top-row a:first-child[b-ocnk4r8tjs] {
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+.top-row a:first-child[b-ocnk4r8tjs] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-ocnk4r8tjs] {

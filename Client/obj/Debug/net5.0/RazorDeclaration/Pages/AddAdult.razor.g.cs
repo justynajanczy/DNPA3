@@ -111,7 +111,7 @@ using Client.Services;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 69 "C:\STUDIA\3.1\DNP\DNPA3\Client\Pages\AddAdult.razor"
+#line 70 "C:\STUDIA\3.1\DNP\DNPA3\Client\Pages\AddAdult.razor"
  
     public Adult newAdultItem = new Adult();
     public Job newAdultJob = new Job();
